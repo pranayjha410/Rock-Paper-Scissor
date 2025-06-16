@@ -5,6 +5,21 @@ const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 const userScorepara = document.querySelector("#user-score");
 const compScorepara = document.querySelector("#comp-score");
+const reset = document.querySelector("#reset");
+
+
+
+    reset.addEventListener("click", () =>{
+        console.log("it is reset time ");
+        userScorepara.innerText = 0;
+        compScorepara.innerText = 0;
+        userScore =0;
+        compScore =0;
+        msg.innerText = "Start The Game Again!!"
+        msg.style.backgroundColor = " #003262";
+         reset.style.display = "none";
+        
+    });
 
 
 const compChoice = () =>{
@@ -17,6 +32,7 @@ const compChoice = () =>{
 choices.forEach((choice) =>{
     choice.addEventListener("click", () =>{
         console.log("choice was clicked");
+        reset.style.display = "block";
         const userChoice = choice.getAttribute("id");
         playGame(userChoice);
     });
@@ -44,6 +60,7 @@ const showWinner = (userWin) =>{
          msg.innerText = "You Loss!!!"
          msg.style.backgroundColor = "Red";
     }
+    
 }
 
 const playGame = (userChoice) => {
